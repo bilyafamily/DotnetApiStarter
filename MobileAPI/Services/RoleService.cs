@@ -89,11 +89,11 @@ public class RoleService : IRoleService
         }
     }
 
-    public async Task<ResponseDto> AssignRoleToUserAsync(string email, string roleName)
+    public async Task<ResponseDto> AssignRoleToUserAsync(string userId, string roleName)
     {
         try
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 _response.StatusCode = HttpStatusCode.NotFound;
@@ -136,11 +136,11 @@ public class RoleService : IRoleService
         }
     }
 
-    public async Task<ResponseDto> RemoveRoleFromUserAsync(string email, string roleName)
+    public async Task<ResponseDto> RemoveRoleFromUserAsync(string userId, string roleName)
     {
         try
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 _response.StatusCode = HttpStatusCode.NotFound;
@@ -175,11 +175,11 @@ public class RoleService : IRoleService
         }
     }
 
-    public async Task<ResponseDto> GetUserRolesAsync(string email)
+    public async Task<ResponseDto> GetUserRolesAsync(string userId)
     {
         try
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 _response.StatusCode = HttpStatusCode.NotFound;

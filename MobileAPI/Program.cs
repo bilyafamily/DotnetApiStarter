@@ -84,6 +84,7 @@ builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ISectorRepository, SectorRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 builder.Services.AddTransient<RoleSeederService>();
 
 // Authorization
